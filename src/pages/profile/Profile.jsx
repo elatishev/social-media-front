@@ -3,6 +3,7 @@ import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
+import { makeRelativePath } from "../../mainConstants";
 
 export default function Profile() {
   return (
@@ -15,12 +16,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src="assets/post/3.jpeg"
+                src={makeRelativePath("/post/3.jpeg")}
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src="assets/person/7.jpeg"
+                src={makeRelativePath("/person/7.jpeg")}
                 alt=""
               />
             </div>
