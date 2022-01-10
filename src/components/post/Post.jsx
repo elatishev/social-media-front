@@ -1,40 +1,52 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { MoreVert } from "@material-ui/icons";
-import { makeRelativePath} from "../../mainConstants";
+import { format } from "timeago.js";
 import axios from "axios";
-import {format} from "timeago.js"
+import { makeRelativePath } from "../../mainConstants";
 import "./post.css";
 
 export default function Post({ post }) {
-  const [like, setLike] = useState(post.likes.length);
+  const [user, setUser] = useState({});
   const [isLiked, setIsLiked] = useState(false);
-  const [user, setUser] = useState(false);
+  const [like, setLike] = useState(post.likes.length);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchUser = async () => {
-      const {data} = await axios.get(`users/${post.userId}`)
-      setUser(data)
-    }
-    fetchUser()
-  }, [post.userId])
+      const { data } = await axios.get(`/users?userId=${post.userId}`);
+      setUser(data);
+    };
+    fetchUser();
+  }, [post.userId]);
 
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
+
+  const itselfRefGuardian = () => {
+    return location.pathname.includes(user.username)
+      ? ""
+      : `profile/${user.username}`;
+  };
+
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              src={user.profilePicture || makeRelativePath("/person/noAvatar.png")}
-              alt=""
-            />
-            <span className="postUsername">
-              {user.username}
-            </span>
+            <Link to={itselfRefGuardian()}>
+              <img
+                className="postProfileImg"
+                src={
+                  user.profilePicture ||
+                  makeRelativePath("/person/noAvatar.png")
+                }
+                alt=""
+              />
+            </Link>
+            <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
@@ -69,3 +81,4 @@ export default function Post({ post }) {
     </div>
   );
 }
+// https://youtu.be/pFHyZvVxce0?list=PLj-4DlPRT48lXaz5YLvbLC38m25W9Kmqy&t=3432
