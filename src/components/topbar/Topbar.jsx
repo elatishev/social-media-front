@@ -1,12 +1,16 @@
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { makeRelativePath } from "../../mainConstants";
 import "./topbar.css";
 
 export default function Topbar() {
+  const { user } = useSelector((state) => state.registration);
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <Link to="/" style={{textDecoration: "none"}}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">Social Media</span>
         </Link>
       </div>
@@ -38,7 +42,15 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
+        <Link to={`/profile/${user.username}`}>
+          <img
+            src={
+              user.profilePicture || makeRelativePath("/person/noAvatar.png")
+            }
+            alt=""
+            className="topbarImg"
+          />
+        </Link>
       </div>
     </div>
   );

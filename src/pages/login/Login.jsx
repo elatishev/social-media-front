@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUser } from "../../features/Auth/registrationActions";
+import { Link } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
+import { loginUser } from "../../features/Auth/registrationActions";
 import "./login.css";
 
 export default function Login() {
@@ -32,6 +33,7 @@ export default function Login() {
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleClick}>
             <input
+              value="DjonTrue@gmail.com"
               placeholder="Email"
               className="loginInput"
               required
@@ -39,6 +41,7 @@ export default function Login() {
               ref={email}
             />
             <input
+              value="123456"
               placeholder="Password"
               className="loginInput"
               minLength={6}
@@ -54,13 +57,13 @@ export default function Login() {
               )}
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
+            <Link to={"/register"} className="loginRegisterButton">
               {isFetching ? (
                 <CircularProgress color="primary" size="20px" />
               ) : (
-                "Create a nrw account"
+                "Create a new account"
               )}
-            </button>
+            </Link>
           </form>
         </div>
       </div>

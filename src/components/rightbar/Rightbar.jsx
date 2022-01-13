@@ -2,11 +2,11 @@ import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { makeRelativePath } from "../../mainConstants";
 import { makeRelationship } from "../../helpers";
+import UserFriends from "../UserFriends/UserFriends";
 import "./rightbar.css";
 
 export default function Rightbar({ user }) {
   const HomeRightbar = () => {
-    console.log(user);
     return (
       <>
         <div className="birthdayContainer">
@@ -50,57 +50,7 @@ export default function Rightbar({ user }) {
             </span>
           </div>
         </div>
-        <h4 className="rightbarTitle">User friends</h4>
-        <div className="rightbarFollowings">
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/1.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/2.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/3.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/4.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/5.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img
-              src={makeRelativePath("/person/6.jpeg")}
-              alt=""
-              className="rightbarFollowingImg"
-            />
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-        </div>
+        <UserFriends user={user} />
       </>
     );
   };
