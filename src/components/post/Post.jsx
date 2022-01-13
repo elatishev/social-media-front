@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { MoreVert } from "@material-ui/icons";
 import { format } from "timeago.js";
@@ -11,6 +12,7 @@ export default function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
   const [like, setLike] = useState(post.likes.length);
   const location = useLocation();
+  const { user: currentUser } = useSelector((state) => state.registration);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -18,9 +20,17 @@ export default function Post({ post }) {
       setUser(data);
     };
     fetchUser();
-  }, [post.userId]);
+
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [post.userId, post.likes, currentUser]);
 
   const likeHandler = () => {
+    try {
+      axios.put(`/posts/${post._id}/like`, { userId: currentUser._id });
+    } catch (error) {
+      console.error(error);
+    }
+
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };

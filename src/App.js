@@ -15,7 +15,10 @@ function App() {
         <Route index element={user ? <Home /> : <Login />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile/:username" element={<Profile />} />
+        <Route
+          path="/profile/:username"
+          element={user ? <Profile /> : <Navigate to="/" />}
+        />
         <Route
           path="*"
           element={user ? <Navigate to="/" /> : <Navigate to="/login" />}
@@ -26,4 +29,5 @@ function App() {
 }
 //TODO Rewrite all styles imports with css in js
 //TODO optimize Post component rerenders
+//TODO replace all useSelector with createSelector
 export default App;

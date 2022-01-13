@@ -71,9 +71,10 @@
 }
 
 .loginRegisterButton {
+  text-align: center;
   width: 60%;
-  align-self: center;
   height: 50px;
+  line-height: 45px;
   border-radius: 10px;
   border: none;
   background-color: #42b72a;
