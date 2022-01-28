@@ -15,22 +15,16 @@ function App() {
         <Route index element={user ? <Home /> : <Login />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/profile/:username"
-          element={user ? <Profile /> : <Navigate to="/" />}
-        />
-        <Route
-          path="*"
-          element={user ? <Navigate to="/" /> : <Navigate to="/login" />}
-        />
+        <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="/" />} />
+        <Route path="*" element={user ? <Navigate to="/" /> : <Navigate to="/login" />} />
       </Route>
     </Routes>
   );
 }
-//TODO Rewrite all styles imports with css in js
-//TODO optimize Post component rerenders
-//TODO replace all useSelector with createSelector
-//TODO Move Routes to array
-//TODO Replace default import in components with index.js inport export
-//TODO Rewrite with TS
+// TODO Rewrite all styles imports with css in js
+// TODO optimize Post component rerenders
+// TODO replace all useSelector with createSelector
+// TODO Move Routes to array
+// TODO Replace default import in components with index.js inport export
+// TODO Rewrite with TS
 export default App;

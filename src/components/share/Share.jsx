@@ -45,9 +45,7 @@ export default function Share() {
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={
-              user?.profilePicture || makeRelativePath("/person/noAvatar.png")
-            }
+            src={user?.profilePicture || makeRelativePath("/person/noAvatar.png")}
             alt=""
           />
           <input

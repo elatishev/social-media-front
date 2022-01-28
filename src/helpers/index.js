@@ -10,6 +10,4 @@ export const makeRelationship = (userRelationshipStatus) => {
 };
 
 export const compareByCreationDate = (posts) =>
-  posts.sort(
-    (post1, post2) => new Date(post2.createdAt) - new Date(post1.createdAt)
-  );
+  posts.sort((post1, post2) => new Date(post2.createdAt) - new Date(post1.createdAt));

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { MoreVert } from "@material-ui/icons";
@@ -36,9 +36,7 @@ export default function Post({ post }) {
   };
 
   const itselfRefGuardian = () => {
-    return location.pathname.includes(user.username)
-      ? ""
-      : `profile/${user.username}`;
+    return location.pathname.includes(user.username) ? "" : `profile/${user.username}`;
   };
 
   return (
@@ -49,10 +47,7 @@ export default function Post({ post }) {
             <Link to={itselfRefGuardian()}>
               <img
                 className="postProfileImg"
-                src={
-                  user.profilePicture ||
-                  makeRelativePath("/person/noAvatar.png")
-                }
+                src={user.profilePicture || makeRelativePath("/person/noAvatar.png")}
                 alt=""
               />
             </Link>
@@ -91,4 +86,3 @@ export default function Post({ post }) {
     </div>
   );
 }
-// https://youtu.be/pFHyZvVxce0?list=PLj-4DlPRT48lXaz5YLvbLC38m25W9Kmqy&t=3432

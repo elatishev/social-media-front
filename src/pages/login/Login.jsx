@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
@@ -50,11 +50,7 @@ export default function Login() {
               ref={password}
             />
             <button className="loginButton" disabled={isFetching}>
-              {isFetching ? (
-                <CircularProgress color="primary" size="20px" />
-              ) : (
-                "Log In"
-              )}
+              {isFetching ? <CircularProgress color="primary" size="20px" /> : "Log In"}
             </button>
             <span className="loginForgot">Forgot Password?</span>
             <Link to={"/register"} className="loginRegisterButton">

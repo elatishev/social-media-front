@@ -1,4 +1,4 @@
-import "./sidebar.css";
+import React from "react";
 import {
   RssFeed,
   Chat,
@@ -12,6 +12,7 @@ import {
 } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import "./sidebar.css";
 
 export default function Sidebar() {
   return (

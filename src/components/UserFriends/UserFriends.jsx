@@ -23,13 +23,11 @@ const UserFriends = ({ user }) => {
             <Link
               to={`/profile/${friend.username}`}
               style={{ textDecoration: "none" }}
+              key={friend.username}
             >
               <div className="rightbarFollowing">
                 <img
-                  src={
-                    friend.profilePicture ||
-                    makeRelativePath("/person/noAvatar.png")
-                  }
+                  src={friend.profilePicture || makeRelativePath("/person/noAvatar.png")}
                   alt=""
                   className="rightbarFollowingImg"
                 />

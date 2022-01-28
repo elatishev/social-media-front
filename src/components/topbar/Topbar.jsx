@@ -1,3 +1,4 @@
+import React from "react";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,10 +18,7 @@ export default function Topbar() {
       <div className="topbarCenter">
         <div className="searchbar">
           <Search className="searchIcon" />
-          <input
-            placeholder="Search for friend, post or video"
-            className="searchInput"
-          />
+          <input placeholder="Search for friend, post or video" className="searchInput" />
         </div>
       </div>
       <div className="topbarRight">
@@ -44,9 +42,7 @@ export default function Topbar() {
         </div>
         <Link to={`/profile/${user.username}`}>
           <img
-            src={
-              user.profilePicture || makeRelativePath("/person/noAvatar.png")
-            }
+            src={user.profilePicture || makeRelativePath("/person/noAvatar.png")}
             alt=""
             className="topbarImg"
           />
