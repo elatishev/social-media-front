@@ -1,3 +1,4 @@
+import React from "react";
 import { makeRelativePath } from "../../mainConstants";
 import "./closeFriend.css";
 

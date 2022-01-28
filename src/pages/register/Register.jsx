@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
@@ -42,19 +42,8 @@ export default function Register() {
         </div>
         <div className="loginRight">
           <form className="loginBox" onSubmit={registrationUserHandleClick}>
-            <input
-              placeholder="Username"
-              required
-              ref={userName}
-              className="loginInput"
-            />
-            <input
-              placeholder="Email"
-              required
-              type={email}
-              ref={email}
-              className="loginInput"
-            />
+            <input placeholder="Username" required ref={userName} className="loginInput" />
+            <input placeholder="Email" required type={email} ref={email} className="loginInput" />
             <input
               placeholder="Password"
               required

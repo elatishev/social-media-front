@@ -1,8 +1,8 @@
-import React , {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Add, Remove } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
 import { makeRelativePath } from "../../mainConstants";
@@ -10,14 +10,13 @@ import "./rightbar.css";
 
 export default function Rightbar({ user }) {
   const [friends, setFriends] = useState([]);
-  const {user: registeredUser} = useSelector(state => state.registration)
+  const { user: registeredUser } = useSelector((state) => state.registration);
   const [followed, setFollowed] = useState(null);
 
   useEffect(() => {
-    if(user && user._id) {
-      axios.get(`/users/friends/${user._id}`)
-          .then(({data}) => setFriends(data))
-      setFollowed(registeredUser.followings.includes(user?._id))
+    if (user && user._id) {
+      axios.get(`/users/friends/${user._id}`).then(({ data }) => setFriends(data));
+      setFollowed(registeredUser.followings.includes(user?._id));
     }
   }, [user, registeredUser.followings]);
 
@@ -31,11 +30,10 @@ export default function Rightbar({ user }) {
         await axios.put(`/users/${user._id}/follow`, {
           userId: registeredUser._id,
         });
-
       }
       setFollowed(!followed);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   };
 
@@ -43,11 +41,7 @@ export default function Rightbar({ user }) {
     return (
       <>
         <div className="birthdayContainer">
-          <img
-            className="birthdayImg"
-            src={makeRelativePath("/gift.png")}
-            alt=""
-          />
+          <img className="birthdayImg" src={makeRelativePath("/gift.png")} alt="" />
           <span className="birthdayText">
             <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
           </span>
@@ -85,11 +79,7 @@ export default function Rightbar({ user }) {
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
             <span className="rightbarInfoValue">
-              {user.relationship === 1
-                ? "Single"
-                : user.relationship === 1
-                ? "Married"
-                : "-"}
+              {user.relationship === 1 ? "Single" : user.relationship === 1 ? "Married" : "-"}
             </span>
           </div>
         </div>
@@ -99,6 +89,7 @@ export default function Rightbar({ user }) {
             <Link
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
+              key={friend.username}
             >
               <div className="rightbarFollowing">
                 <img
@@ -120,9 +111,7 @@ export default function Rightbar({ user }) {
   };
   return (
     <div className="rightbar">
-      <div className="rightbarWrapper">
-        {user ? <ProfileRightbar /> : <HomeRightbar />}
-      </div>
+      <div className="rightbarWrapper">{user ? <ProfileRightbar /> : <HomeRightbar />}</div>
     </div>
   );
 }

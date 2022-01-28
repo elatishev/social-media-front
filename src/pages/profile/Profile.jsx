@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -35,10 +35,7 @@ export default function Profile() {
               />
               <img
                 className="profileUserImg"
-                src={
-                  user.profilePicture ||
-                  makeRelativePath("/person/noAvatar.png")
-                }
+                src={user.profilePicture || makeRelativePath("/person/noAvatar.png")}
                 alt=""
               />
             </div>
