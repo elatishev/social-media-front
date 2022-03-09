@@ -6,6 +6,7 @@ import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import Messages from "./components/Messages/Messages";
 
 function App() {
   const { user } = useSelector((state) => state.registration);
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="/" />} />
+        <Route path="/messages" element={<Messages />} />
         <Route path="*" element={user ? <Navigate to="/" /> : <Navigate to="/login" />} />
       </Route>
     </Routes>
@@ -25,6 +27,7 @@ function App() {
 // TODO optimize Post component rerenders
 // TODO replace all useSelector with createSelector
 // TODO Move Routes to array
-// TODO Replace default import in components with index.js inport export
+// TODO Replace default import in components with index.js import export
 // TODO Rewrite with TS
+// TODO Try to implement friends tree with accordion structure
 export default App;
