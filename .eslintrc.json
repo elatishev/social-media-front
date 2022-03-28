@@ -28,10 +28,13 @@
         "prettier"
     ],
     "rules": {
+        "react/display-name": "off",
         "no-unused-vars": "warn",
         "require-jsdoc": "off",
         "react/prop-types": "off",
+        "comma-dangle": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/ban-types": "off"
+        "@typescript-eslint/ban-types": "off",
+        "prettier/prettier": 1
     }
 }

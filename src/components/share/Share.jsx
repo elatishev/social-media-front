@@ -28,7 +28,7 @@ export default function Share() {
       try {
         await axios.post("/upload", data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 

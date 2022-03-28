@@ -28,6 +28,7 @@
 
 .sidebarListItem {
   display: flex;
+  cursor: pointer;
   align-items: center;
   margin-bottom: 20px;
 }
