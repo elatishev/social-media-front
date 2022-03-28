@@ -30,4 +30,6 @@ function App() {
 // TODO Replace default import in components with index.js import export
 // TODO Rewrite with TS
 // TODO Try to implement friends tree with accordion structure
+// Add internalization
+// Try to add tests
 export default App;

@@ -14,8 +14,26 @@ import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import RootModal from "../../pages/modals/RootModal";
+import { showModal } from "features/groupModal/groupModal";
 
 export default function Sidebar() {
+  const dispatch = useDispatch();
+  const { modalType } = useSelector((state) => state.modal);
+
+  const onOpenGroupModal = () => {
+    dispatch(
+      showModal({
+        modalType: "GROUP_MODAL",
+        isModalOpen: true,
+        modalProps: {
+          title: "Groups",
+        },
+      })
+    );
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -34,7 +52,8 @@ export default function Sidebar() {
             <PlayCircleFilledOutlined className="sidebarIcon" />
             <span className="sidebarListItemText">Videos</span>
           </li>
-          <li className="sidebarListItem">
+          {modalType && <RootModal />}
+          <li className="sidebarListItem" onClick={onOpenGroupModal}>
             <Group className="sidebarIcon" />
             <span className="sidebarListItemText">Groups</span>
           </li>
