@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   RssFeed,
   Chat,
@@ -12,11 +14,9 @@ import {
 } from "@material-ui/icons";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
-import "./sidebar.css";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import RootModal from "../../pages/modals/RootModal";
-import { showModal } from "features/groupModal/groupModal";
+import { showModal } from "../../features/groupModal/groupModal";
+import "./sidebar.css";
 
 export default function Sidebar() {
   const dispatch = useDispatch();

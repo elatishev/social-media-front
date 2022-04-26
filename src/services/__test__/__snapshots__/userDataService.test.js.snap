@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`API call is successful getDataService returned value 1`] = `
+Object {
+  "__v": 0,
+  "_id": "61d9d847c97cb8bdc4691674",
+  "coverPicture": "",
+  "createdAt": "2022-01-08T18:30:31.666Z",
+  "email": "AlenaBfit@gmail.com",
+  "followers": Array [
+    "61de9ae792d7aa5da2105351",
+  ],
+  "followings": Array [
+    "61de9ae792d7aa5da2105351",
+  ],
+  "isAdmin": false,
+  "profilePicture": "",
+  "username": "AlenaBfit",
+}
+`;

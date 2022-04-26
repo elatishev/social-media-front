@@ -4,7 +4,7 @@ import { Add, Remove } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Users } from "../../dummyData";
-import Online from "../online/Online";
+import Online from "../Online/Online";
 import { makeRelativePath } from "../../mainConstants";
 import "./rightbar.css";
 

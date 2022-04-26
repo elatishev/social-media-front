@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { registrationService } from "../../services/registrationService";
 
 const initialState = {
   user: null,
@@ -6,24 +7,30 @@ const initialState = {
   error: false,
 };
 
+export const loginUser = createAsyncThunk("auth/login", async (userCredential) => {
+  const { data } = await registrationService.getRegisteredUser("auth/login", userCredential);
+  return data;
+});
+
 export const registrationSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    loginStart: (state) => {
-      state.isFetching = true;
-    },
-    loginSuccess: (state, { payload }) => {
-      state.user = payload;
-      state.isFetching = false;
-      state.error = false;
-    },
-    loginFailure: (state, action) => {
-      state.isFetching = false;
-      state.error = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUser.pending, (state) => {
+        state.isFetching = true;
+      })
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isFetching = false;
+        state.error = false;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isFetching = false;
+        state.error = action.payload;
+      });
   },
-  extraReducers: {},
 });
 
 export const { loginStart, loginSuccess, loginFailure, unFollowFromUser } =

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 import GroupModal from "./GroupModal/GroupModal";
-import { closeModal } from "features/groupModal/groupModal";
+import { closeModal } from "../../features/groupModal/groupModal";
 
 type TEvent = React.KeyboardEvent;
 
@@ -9,7 +9,6 @@ const MODAL_COMPONENTS: any = {
   GROUP_MODAL: GroupModal,
 };
 
-// @ts-ignore add types
 const RootModal = ({ modalType, modalProps }) => {
   const dispatch = useDispatch();
 

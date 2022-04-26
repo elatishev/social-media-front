@@ -1,8 +1,8 @@
 import React from "react";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import { useDeleteGroupMutation, useGetGroupsQuery } from "./groupModalApi";
 import CloseIcon from "@material-ui/icons/Close";
+import { useDeleteGroupMutation, useGetGroupsQuery } from "./groupModalApi";
 
 const GroupList = () => {
   const { data: groups } = useGetGroupsQuery("20");
@@ -14,6 +14,7 @@ const GroupList = () => {
 
   return (
     <div>
+      <h3>{groups && `${groups.length} groups are avialeble for you`}</h3>
       {groups &&
         groups.map(({ groupName, groupDesc, id }: any) => (
           <ListItem key={id} component="div" disablePadding>

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
-import { loginUser } from "../../features/Auth/registrationActions";
+import { loginUser } from "../../features/Auth/registrationSlice";
 import "./login.css";
 
 export default function Login() {

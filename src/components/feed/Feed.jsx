@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import Share from "../share/Share";
-import Post from "../post/Post";
-import "./feed.css";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPostsByUser } from "../../features/fetchingPosts/fetchingPostsSlice";
+import { selectIsUserRegistered } from "../../selectors";
+import Share from "../share/Share";
+import Post from "../post/Post";
 import SkeletonPosts from "../SkeletonPosts/SkeletonPosts";
+import "./feed.css";
 
 export default function Feed({ username }) {
-  // const [posts, setPosts] = useState([]);
-  const { user } = useSelector((state) => state.registration);
+  const { user } = useSelector(selectIsUserRegistered);
   const { posts, loading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
 
@@ -16,7 +16,6 @@ export default function Feed({ username }) {
     const fetchPosts = async () => {
       const fetchingPostsPreparedData = { username, user };
       dispatch(fetchPostsByUser(fetchingPostsPreparedData));
-      // setPosts(compareByCreationDate(data));
     };
     fetchPosts();
   }, [username, user._id, user, dispatch]);

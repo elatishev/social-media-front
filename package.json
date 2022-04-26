@@ -49,6 +49,8 @@
     "eslint": "^7.11.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "redux-mock-store": "^1.5.4",
     "typescript": "^4.5.5"
   },
   "scripts": {
@@ -58,6 +60,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "prettier": {
     "singleQuote": false,

@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useParams } from "react-router";
 import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Feed from "../../components/feed/Feed";
+import Feed from "../../components/Feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import { makeRelativePath } from "../../mainConstants";
-import { useParams } from "react-router";
 import "./profile.css";
+import { userDataService } from "../../services";
 
 export default function Profile() {
   const [user, setUser] = useState({});
   const params = useParams();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const { data } = await axios.get(`/users?username=${params.username}`);
-      setUser(data);
-    };
-    fetchUser();
+    userDataService.getUserData(params.username).then((data) => setUser(data));
   }, [params.username]);
 
   return (

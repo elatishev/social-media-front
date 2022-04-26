@@ -7,8 +7,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// @ts-ignore
-const PrimaryButton = ({ children, props }) => {
+const PrimaryButton = () => {
   const styles = useStyles();
 
   return (
