@@ -7,9 +7,10 @@ import Profile from "./pages/profile/Profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Messages from "./components/Messages/Messages";
+import { selectIsUserRegistered } from "./selectors";
 
 function App() {
-  const { user } = useSelector((state) => state.registration);
+  const { user } = useSelector(selectIsUserRegistered);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -28,8 +29,7 @@ function App() {
 // TODO replace all useSelector with createSelector
 // TODO Move Routes to array
 // TODO Replace default import in components with index.js import export
-// TODO Rewrite with TS
 // TODO Try to implement friends tree with accordion structure
-// Add internalization
-// Try to add tests
+// TODO Add internalization
+// TODO Add notifications about deleting groups
 export default App;

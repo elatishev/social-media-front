@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryButton component PrimaryButton component renders fine 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-1 MuiButton-containedPrimary MuiButton-fullWidth"
+  tabindex="0"
+  type="submit"
+>
+  <span
+    class="MuiButton-label"
+  />
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`Test PrimaryButton component PrimaryButton component renders fine 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-1 MuiButton-containedPrimary MuiButton-fullWidth"
+  tabindex="0"
+  type="submit"
+>
+  <span
+    class="MuiButton-label"
+  />
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;

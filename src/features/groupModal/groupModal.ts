@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface groupModalState {
+  modalType: string | null;
+  isModalOpen: boolean;
+  modalProps: Record<string, any>;
+}
+
+export const initialState: groupModalState = {
   modalType: null,
   isModalOpen: false,
   modalProps: {},
@@ -10,11 +16,11 @@ const modalSlice = createSlice({
   name: "groupModal",
   initialState,
   reducers: {
-    showModal: (state: any, { payload }: any) => {
-      state.modalType = payload.modalType;
-      state.isModalOpen = payload.isModalOpen;
-      state.modalProps = payload.modalProps;
-    },
+    showModal: (_, { payload: { modalType, isModalOpen, modalProps } }): groupModalState => ({
+      modalType,
+      isModalOpen,
+      modalProps,
+    }),
     closeModal: () => {
       return initialState;
     },

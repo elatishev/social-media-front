@@ -3,6 +3,7 @@
     "baseUrl": "src",
     "outDir": "build/dist",
     "module": "esnext",
+    "noImplicitAny": false,
     "target": "es5",
     "sourceMap": true,
     "allowJs": true,
@@ -24,7 +25,8 @@
     "noEmit": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib"
   ],
   "include": [
     "src"
