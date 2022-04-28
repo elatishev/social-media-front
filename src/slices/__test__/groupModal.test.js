@@ -1,9 +1,4 @@
-import {
-  modalReducer,
-  closeModal,
-  showModal,
-  initialState,
-} from "../../features/groupModal/groupModal";
+import { modalReducer, closeModal, showModal, initialState } from "../groupModal/groupModal";
 
 const exampleState = {
   modalType: "GROUP_MODAL",

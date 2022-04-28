@@ -13,10 +13,10 @@ const GroupList = () => {
   };
 
   return (
-    <div>
+    <>
       <h3>{groups && `${groups.length} groups are avialeble for you`}</h3>
       {groups &&
-        groups.map(({ groupName, groupDesc, id }: any) => (
+        groups.map(({ groupName, groupDesc, authorName, id }: any) => (
           <ListItem key={id} component="div" disablePadding>
             <ListItemButton
               style={{
@@ -27,6 +27,7 @@ const GroupList = () => {
               }}
             >
               <h3>Name {groupName || "Not initialized"}</h3>
+              <h4>Author: {authorName || "Unknown author"}</h4>
               <p>Description {groupDesc}</p>
             </ListItemButton>
             <ListItemButton>
@@ -34,7 +35,7 @@ const GroupList = () => {
             </ListItemButton>
           </ListItem>
         ))}
-    </div>
+    </>
   );
 };
 

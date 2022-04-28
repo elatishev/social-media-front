@@ -1,4 +1,4 @@
-import { selectIsUserRegistered } from "../";
+import { selectIsUserRegistered, selectRegisteredUser } from "../registrationSelectors";
 
 describe("selectIsUserRegistered", () => {
   it("work with empty state", () => {
@@ -31,5 +31,29 @@ describe("selectIsUserRegistered", () => {
     ).toEqual({
       test: "test",
     });
+  });
+});
+
+describe("selectRegisteredUser", () => {
+  it("work with empty state", () => {
+    expect(
+      selectRegisteredUser({
+        registration: {
+          user: undefined,
+        },
+      })
+    ).toBe(undefined);
+  });
+
+  it("work with initial state", () => {
+    expect(
+      selectRegisteredUser({
+        registration: {
+          user: null,
+          isFetching: false,
+          error: false,
+        },
+      })
+    ).toBe(null);
   });
 });

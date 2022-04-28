@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
+import Login from "./pages/Login/Login";
 import Register from "./pages/register/Register";
 import Profile from "./pages/profile/Profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Messages from "./components/Messages/Messages";
-import { selectIsUserRegistered } from "./selectors";
+import { selectIsUserRegistered } from "./selectors/registrationSelectors";
 
 function App() {
   const { user } = useSelector(selectIsUserRegistered);

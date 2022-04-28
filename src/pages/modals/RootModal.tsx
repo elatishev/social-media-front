@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
 import GroupModal from "./GroupModal/GroupModal";
-import { closeModal } from "../../features/groupModal/groupModal";
+import { closeModal } from "../../slices/groupModal/groupModal";
 
 type TEvent = React.KeyboardEvent;
 

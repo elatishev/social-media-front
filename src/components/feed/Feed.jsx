@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPostsByUser } from "../../features/fetchingPosts/fetchingPostsSlice";
-import { selectIsUserRegistered } from "../../selectors";
+import { fetchPostsByUser } from "../../slices/fetchingPosts/fetchingPostsSlice";
+import { selectIsUserRegistered } from "../../selectors/registrationSelectors";
 import Share from "../share/Share";
 import Post from "../post/Post";
 import SkeletonPosts from "../SkeletonPosts/SkeletonPosts";

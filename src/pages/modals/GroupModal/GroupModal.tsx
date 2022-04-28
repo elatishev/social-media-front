@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import { useSelector } from "react-redux";
 import GroupList from "./GroupList";
 import Fields from "./Fields/Fields";
 
-// @ts-ignore
 export default function GroupModal({ onModalClose, title }) {
-  const [isCreatingNewGroup, setCreatingNewGroup] = useState(false);
+  const [isCreatingNewGroup, setCreatingNewGroup] = useState<boolean>(false);
   const isModalOpen = useSelector((state: any) => state.modal.isModalOpen);
 
   const startCreateNewGroup = () => {
@@ -27,10 +26,10 @@ export default function GroupModal({ onModalClose, title }) {
   );
 
   return (
-    <div>
+    <>
       <Drawer anchor="right" open={isModalOpen} onClose={onModalClose}>
         {list()}
       </Drawer>
-    </div>
+    </>
   );
 }

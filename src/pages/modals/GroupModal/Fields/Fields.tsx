@@ -1,30 +1,37 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { selectRegisteredUser } from "../../../../selectors/registrationSelectors";
 import Input from "../../../../components/Inputs/Input";
 import { useAddGroupMutation } from "../groupModalApi";
 
 interface IFormInputs {
-  groupName?: string;
-  groupDesc?: string;
+  groupName: string;
+  groupDesc: string;
 }
 
 const Fields = () => {
   const [addGroup] = useAddGroupMutation();
+  const { _id, username } = useSelector(selectRegisteredUser);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IFormInputs>({
     mode: "onBlur",
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    addGroup(data).unwrap();
+  const onSubmit = (data: IFormInputs) => {
+    addGroup({
+      ...data,
+      authorId: _id,
+      authorName: username,
+    }).unwrap();
   };
 
   return (
-    <div>
+    <>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Input
           {...register("groupName", {
@@ -50,7 +57,7 @@ const Fields = () => {
 
         <input type="submit" />
       </form>
-    </div>
+    </>
   );
 };
 

@@ -15,7 +15,7 @@ import {
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
 import RootModal from "../../pages/modals/RootModal";
-import { showModal } from "../../features/groupModal/groupModal";
+import { showModal } from "../../slices/groupModal/groupModal";
 import "./sidebar.css";
 
 export default function Sidebar() {
